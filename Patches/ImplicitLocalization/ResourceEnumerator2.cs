@@ -54,9 +54,16 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
             }
         }
 
+        /// <summary>
+        /// Gets the current element in the collection.
+        /// </summary>
+        /// <returns>The current element in the collection.</returns>
         public object Current
         {
-            get { throw new NotImplementedException(); }
+            get 
+            {
+                return this.Entry;
+            }
         }
 
         public bool MoveNext()
