@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -16,9 +17,15 @@
     </SilverlightApplicationList>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <UpgradeBackupLocation />
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
     <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,7 +66,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-	  <SpecificVersion>False</SpecificVersion>
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
@@ -113,7 +120,6 @@
       <HintPath>bin\MySql.Data.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    
     <Reference Include="payflow_dotNET">
       <HintPath>bin\payflow_dotNET.dll</HintPath>
       <Private>True</Private>
@@ -229,7 +235,7 @@
     </Reference>
     <Reference Include="Telerik.Sitefinity, Version=4.0.790.0, Culture=neutral, PublicKeyToken=b28c218413bdf563, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-	  <HintPath>bin\Telerik.Sitefinity.dll</HintPath>
+      <HintPath>bin\Telerik.Sitefinity.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Telerik.Sitefinity.Analytics.Server.Core, Version=4.0.810.0, Culture=neutral, processorArchitecture=MSIL">
@@ -254,7 +260,7 @@
     </Reference>
     <Reference Include="Telerik.Sitefinity.Model, Version=4.0.790.0, Culture=neutral, PublicKeyToken=b28c218413bdf563, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-	  <HintPath>bin\Telerik.Sitefinity.Model.dll</HintPath>
+      <HintPath>bin\Telerik.Sitefinity.Model.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Telerik.Sitefinity.Resources, Version=4.0.810.0, Culture=neutral, processorArchitecture=MSIL">
@@ -262,57 +268,57 @@
       <HintPath>bin\Telerik.Sitefinity.Resources.dll</HintPath>
       <Private>True</Private>
     </Reference>
-	<Reference Include="Telerik.Sitefinity.Services.Documents.Impl">
+    <Reference Include="Telerik.Sitefinity.Services.Documents.Impl">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Telerik.Sitefinity.Services.Documents.Impl.dll</HintPath>
       <Private>True</Private>
     </Reference>
-	<Reference Include="Telerik.Sitefinity.Services.Statistics.Impl">
-    <SpecificVersion>False</SpecificVersion>
-    <HintPath>bin\Telerik.Sitefinity.Services.Statistics.Impl.dll</HintPath>
-    <Private>True</Private>
-  </Reference>
-  <Reference Include="Telerik.Sitefinity.Personalization">
-    <SpecificVersion>False</SpecificVersion>
-    <HintPath>bin\Telerik.Sitefinity.Personalization.dll</HintPath>
-    <Private>True</Private>
-  </Reference>
-  <Reference Include="Telerik.Sitefinity.Personalization.Impl">
-    <SpecificVersion>False</SpecificVersion>
-    <HintPath>bin\Telerik.Sitefinity.Personalization.Impl.dll</HintPath>
-    <Private>True</Private>
-  </Reference>
-  <Reference Include="Telerik.Sitefinity.DropboxLibraries">
-    <SpecificVersion>False</SpecificVersion>
-    <HintPath>bin\Telerik.Sitefinity.DropboxLibraries.dll</HintPath>
-    <Private>True</Private>
-  </Reference>
-	<Reference Include="Telerik.Sitefinity.Services.Documents">
+    <Reference Include="Telerik.Sitefinity.Services.Statistics.Impl">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Telerik.Sitefinity.Services.Statistics.Impl.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Personalization">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Telerik.Sitefinity.Personalization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Personalization.Impl">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Telerik.Sitefinity.Personalization.Impl.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.DropboxLibraries">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Telerik.Sitefinity.DropboxLibraries.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Services.Documents">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Telerik.Sitefinity.Services.Documents.dll</HintPath>
       <Private>True</Private>
     </Reference>
-	<Reference Include="Telerik.Sitefinity.ContentModules">
+    <Reference Include="Telerik.Sitefinity.ContentModules">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Telerik.Sitefinity.ContentModules.dll</HintPath>
       <Private>True</Private>
     </Reference>
-	<Reference Include="Telerik.Sitefinity.Ecommerce">
+    <Reference Include="Telerik.Sitefinity.Ecommerce">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Telerik.Sitefinity.Ecommerce.dll</HintPath>
       <Private>True</Private>
     </Reference>
-	<Reference Include="Telerik.Sitefinity.Forums">
+    <Reference Include="Telerik.Sitefinity.Forums">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Telerik.Sitefinity.Forums.dll</HintPath>
       <Private>True</Private>
     </Reference>
-	<Reference Include="Telerik.Sitefinity.Search.Impl">
+    <Reference Include="Telerik.Sitefinity.Search.Impl">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Telerik.Sitefinity.Search.Impl.dll</HintPath>
       <Private>True</Private>
     </Reference>
-	<Reference Include="Telerik.Sitefinity.Search">
+    <Reference Include="Telerik.Sitefinity.Search">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Telerik.Sitefinity.Search.dll</HintPath>
       <Private>True</Private>
@@ -370,6 +376,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AzureWebRole.cs" />
+    <Compile Include="Patches\ImplicitLocalization\ExtendedResourceProviderFactory2.cs" />
+    <Compile Include="Patches\ImplicitLocalization\LocalResourceProvider2.cs" />
+    <Compile Include="Patches\ImplicitLocalization\LocalResourceReader2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -500,8 +509,13 @@
   <ItemGroup>
     <Folder Include="App_Data\Sitefinity\" />
   </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
