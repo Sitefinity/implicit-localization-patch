@@ -28,9 +28,19 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
             }
         }
 
+        /// <summary>
+        /// Gets the value of the current dictionary entry.
+        /// </summary>
+        /// <returns>The value of the current element of the enumeration.</returns>
+        /// <exception cref="T:System.InvalidOperationException">The <see cref="T:System.Collections.IDictionaryEnumerator" />
+        /// is positioned before the first entry of the dictionary or after the last entry.
+        /// </exception>
         public object Value
         {
-            get { throw new NotImplementedException(); }
+            get 
+            {
+                return this.value;
+            }
         }
 
         public object Current
@@ -53,6 +63,7 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
         #region Private fields and constants
 
         private object key;
+        private object value;
 
         #endregion 
     }
