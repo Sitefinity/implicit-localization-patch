@@ -21,7 +21,10 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
         /// </param>
         public override IResourceProvider CreateLocalResourceProvider(string virtualPath)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(virtualPath))
+                throw new ArgumentNullException("virtualPath");
+
+            return new LocalResourceProvider2(virtualPath);
         }
     }
 }

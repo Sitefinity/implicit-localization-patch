@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Resources;
-using System.Web;
 using System.Web.Compilation;
 
 namespace SitefinityWebApp.Patches.ImplicitLocalization
@@ -14,6 +12,20 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
     /// </summary>
     public class LocalResourceProvider2 : IResourceProvider, IImplicitResourceProvider
     {
+        #region Construction
+
+        /// <summary>
+        /// Creates a new instance of <see cref="LocalResourceProvider2"/> with the
+        /// specified virtual path.
+        /// </summary>
+        /// <param name="virtualPath"></param>
+        public LocalResourceProvider2(string virtualPath)
+        {
+            
+        }
+
+        #endregion
+
         #region IResourceProvider members
 
         /// <summary>
