@@ -8,9 +8,20 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
     {
         #region IDictionaryEnumerator members
 
+        /// <summary>
+        /// Gets both the key and the value of the current dictionary entry.
+        /// </summary>
+        /// <returns>A <see cref="T:System.Collections.DictionaryEntry" /> containing both
+        /// the key and the value of the current dictionary entry.</returns>
+        /// <exception cref="T:System.InvalidOperationException">The <see cref="T:System.Collections.IDictionaryEnumerator" />
+        /// is positioned before the first entry of the dictionary or after the last entry.
+        /// </exception>
         public DictionaryEntry Entry
         {
-            get { throw new NotImplementedException(); }
+            get 
+            {
+                return new DictionaryEntry(this.key, this.value);
+            }
         }
 
         /// <summary>
