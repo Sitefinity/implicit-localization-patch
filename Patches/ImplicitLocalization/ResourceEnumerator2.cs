@@ -1,21 +1,31 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace SitefinityWebApp.Patches.ImplicitLocalization
 {
-    public class ResourceEnumerator2 : IDictionaryEnumerator, IEnumerator
+    public class ResourceEnumerator2 : IDictionaryEnumerator
     {
+        #region IDictionaryEnumerator members
+
         public DictionaryEntry Entry
         {
             get { throw new NotImplementedException(); }
         }
 
+        /// <summary>
+        /// Gets the key of the current dictionary entry.
+        /// </summary>
+        /// <returns>The key of the current element of the enumeration.</returns>
+        /// <exception cref="T:System.InvalidOperationException">The <see cref="T:System.Collections.IDictionaryEnumerator" />
+        /// is positioned before the first entry of the dictionary or after the last entry.
+        /// </exception>
         public object Key
         {
-            get { throw new NotImplementedException(); }
+            get 
+            {
+                return this.key;
+            }
         }
 
         public object Value
@@ -37,5 +47,13 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
         {
             throw new NotImplementedException();
         }
+
+        #endregion
+
+        #region Private fields and constants
+
+        private object key;
+
+        #endregion 
     }
 }
