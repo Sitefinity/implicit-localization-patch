@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Resources;
@@ -18,10 +19,33 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
         /// Creates a new instance of <see cref="LocalResourceProvider2"/> with the
         /// specified virtual path.
         /// </summary>
-        /// <param name="virtualPath"></param>
+        /// <param name="virtualPath">
+        /// The virtual path of the file for which the local resources should be obtained.
+        /// </param>
         public LocalResourceProvider2(string virtualPath)
+            : this(virtualPath, new ResourceFileResolver())
         {
-            
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="LocalResourceProvider2"/> with the
+        /// specified virtual path and resource file resolver.
+        /// </summary>
+        /// <param name="virtualPath">
+        /// The virtual path of the file for which the local resources should be obtained.
+        /// </param>
+        /// <param name="resolver">
+        /// The instance of the <see cref="IResourceFileResolver"/> which will be used to
+        /// resolve resource files associated with the file being represented by the virtual
+        /// path argument.
+        /// </param>
+        public LocalResourceProvider2(string virtualPath, IResourceFileResolver resolver)
+        {
+            if (string.IsNullOrEmpty(virtualPath))
+                throw new ArgumentNullException("virtualPath");
+
+            this.virtualPath = virtualPath;
+            this.resourceFileResolver = resolver;
         }
 
         #endregion
@@ -39,7 +63,18 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
         /// </returns>
         public object GetObject(string resourceKey, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(resourceKey))
+                throw new ArgumentNullException("resourceKey");
+
+            var resourceEnumerator = this.ResourceReader.GetEnumerator();
+            while (resourceEnumerator.MoveNext())
+            {
+                var entry = resourceEnumerator.Entry;
+                if(entry.Key.ToString().Equals(resourceKey, StringComparison.InvariantCultureIgnoreCase))
+                    return entry.Value;
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -47,12 +82,12 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
         /// </summary>
         /// <returns>The <see cref="T:System.Resources.IResourceReader" /> associated with
         /// the current resource provider.</returns>
-        /// <value></value>
         public IResourceReader ResourceReader
         {
             get 
             { 
-                throw new NotImplementedException(); 
+                var paths = this.resourceFileResolver.ResolveResourceFilePaths(this.virtualPath);
+                return new LocalResourceReader2(paths);
             }
         }
 
@@ -87,6 +122,13 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
         {
             throw new NotImplementedException();
         }
+
+        #endregion
+
+        #region Private fields and constants
+
+        private string virtualPath;
+        private IResourceFileResolver resourceFileResolver;
 
         #endregion
     }

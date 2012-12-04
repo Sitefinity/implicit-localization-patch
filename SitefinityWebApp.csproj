@@ -377,9 +377,11 @@
   <ItemGroup>
     <Compile Include="AzureWebRole.cs" />
     <Compile Include="Patches\ImplicitLocalization\ExtendedResourceProviderFactory2.cs" />
+    <Compile Include="Patches\ImplicitLocalization\IResourceFileResolver.cs" />
     <Compile Include="Patches\ImplicitLocalization\LocalResourceProvider2.cs" />
     <Compile Include="Patches\ImplicitLocalization\LocalResourceReader2.cs" />
     <Compile Include="Patches\ImplicitLocalization\ResourceEnumerator2.cs" />
+    <Compile Include="Patches\ImplicitLocalization\ResourceFileResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

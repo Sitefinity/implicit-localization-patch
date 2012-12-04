@@ -7,6 +7,27 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
 {
     public class LocalResourceReader2 : IResourceReader
     {
+        #region Construction
+
+        /// <summary>
+        /// Creates a new instance of <see cref="LocalResourceReader2"/>.
+        /// </summary>
+        /// <param name="resourceFilePaths">
+        /// The array of resource file paths that should be read.
+        /// </param>
+        public LocalResourceReader2(string[] resourceFilePaths)
+        {
+            if (resourceFilePaths == null)
+                throw new ArgumentNullException("resourceFilePaths");
+
+            if (resourceFilePaths.Length == 0)
+                throw new ArgumentException("At least one resource file path must be passed.");
+
+            this.resourceFilePaths = resourceFilePaths;
+        }
+
+        #endregion
+
         #region IResourceReader members
 
         /// <summary>
@@ -25,7 +46,7 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
         /// <returns>A dictionary enumerator for the resources for this reader.</returns>
         public IDictionaryEnumerator GetEnumerator()
         {
-            throw new NotImplementedException();
+            return new ResourceEnumerator2(this.resourceFilePaths);
         }
 
         /// <summary>
@@ -48,6 +69,12 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
         {
             throw new NotImplementedException();
         }
+
+        #endregion
+
+        #region Private fields and constants
+
+        private string[] resourceFilePaths;
 
         #endregion
     }
