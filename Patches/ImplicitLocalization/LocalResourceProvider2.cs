@@ -71,6 +71,17 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
             }
         }
 
+        protected virtual List<LocalizationEntry> Cache
+        {
+            get
+            {
+                if (this.cache == null)
+                    this.LoadCache();
+
+                return this.cache;
+            }
+        }
+
         #endregion
 
         #region IResourceProvider members
@@ -123,39 +134,32 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
         /// </returns>
         public ICollection GetImplicitResourceKeys(string keyPrefix)
         {
+            if (string.IsNullOrEmpty(keyPrefix))
+                throw new ArgumentNullException("keyPrefix");
+
             List<ImplicitResourceKey> keys = new List<ImplicitResourceKey>();
 
-            foreach (DictionaryEntry dictentry in this.ResourceReader)
+            foreach (var locEntry in this.Cache)
             {
-                string key = (string)dictentry.Key;
+                if (!this.IsImplicitKey(locEntry.Key))
+                    continue;
 
-                if (key.StartsWith(keyPrefix + ".", StringComparison.InvariantCultureIgnoreCase) == true)
-                {
-                    string keyproperty = String.Empty;
-                    if (key.Length > (keyPrefix.Length + 1))
-                    {
-                        int pos = key.IndexOf('.');
-                        if ((pos > 0) && (pos == keyPrefix.Length))
-                        {
-                            keyproperty = key.Substring(pos + 1);
-                            if (String.IsNullOrEmpty(keyproperty) == false)
-                            {
-                                string prop = keyproperty;
-                                string filter = "";
-                                if (keyproperty.IndexOf("$") > -1)
-                                {
-                                    prop = keyproperty.Substring(0, keyproperty.IndexOf("$"));
-                                    filter = keyproperty.Substring(keyproperty.IndexOf("$") + 1);
-                                }
+                var implicitKeyPrefix = this.GetImplicitKeyPrefix(locEntry.Key);
+                if (!implicitKeyPrefix.Equals(keyPrefix, StringComparison.InvariantCultureIgnoreCase))
+                    continue;
 
-                                Debug.WriteLine("Adding Implicit Key: " + keyPrefix + " - " + prop);
-                                ImplicitResourceKey implicitkey = new ImplicitResourceKey(filter, keyPrefix, prop);
-                                keys.Add(implicitkey);
-                            }
-                        }
-                    }
-                }
+                var key = new ImplicitResourceKey();
+                key.KeyPrefix = keyPrefix;
+                key.Property = this.GetImplicitKeyProperty(locEntry.Key);
+                
+                if (!string.IsNullOrEmpty(locEntry.Culture))
+                    key.Filter = locEntry.Culture;
+                else
+                    key.Filter = "";
+
+                keys.Add(key);
             }
+
             return keys;
         }
 
@@ -194,10 +198,7 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
 
         protected virtual LocalizationEntry FindLocalizationEntry(string key, CultureInfo culture)
         {
-            if (this.cache == null)
-                this.LoadCache();
-
-            var entries = this.cache.Where(l => l.Key == key);
+            var entries = this.Cache.Where(l => l.Key == key);
             
             if(culture == CultureInfo.InvariantCulture)
                 entries = entries.Where(e => e.Culture == null);
@@ -214,6 +215,24 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
             }
 
             throw new InvalidOperationException();
+        }
+
+        private bool IsImplicitKey(string key)
+        {
+            return key.IndexOf(".") > -1;
+        }
+
+        private string GetImplicitKeyPrefix(string key)
+        {
+            return key.Sub(0, key.IndexOf(".") - 1);
+        }
+
+        private string GetImplicitKeyProperty(string key)
+        {
+            var property = key;
+            // remove the key prefix
+            property = property.Substring(property.IndexOf(".") + 1);
+            return property;
         }
 
         #endregion

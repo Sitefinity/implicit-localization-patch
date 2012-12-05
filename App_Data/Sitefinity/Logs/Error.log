@@ -1262,3 +1262,663 @@ Win32 ThreadId:13464
 
 Extended Properties: 
 ----------------------------------------
+----------------------------------------
+Timestamp: 5.12.2012. 16:10:42
+
+Message: HandlingInstanceID: 035834c6-7520-4c62-b6ce-d18fc1902821
+An exception of type 'System.Web.HttpParseException' occurred and was caught.
+-----------------------------------------------------------------------------
+12/05/2012 18:10:42
+Type : System.Web.HttpParseException, System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+Message : Object reference not set to an instance of an object.
+Source : System.Web
+Help link : 
+FileName : Access failed
+VirtualPath : 
+Line : 0
+ParserErrors : System.Web.ParserErrorCollection
+WebEventCode : 0
+ErrorCode : -2147467259
+Data : System.Collections.ListDictionaryInternal
+TargetSite : Void ProcessException(System.Exception)
+HResult : -2147467259
+Stack Trace :    at System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   at System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   at System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+
+Additional Info:
+
+MachineName : OSMAK
+TimeStamp : 5.12.2012. 16:10:42
+FullName : Telerik.Sitefinity.Utilities, Version=5.2.3800.0, Culture=neutral, PublicKeyToken=b28c218413bdf563
+AppDomainName : /LM/W3SVC/7/ROOT-1-129991974196401940
+ThreadIdentity : admin
+WindowsIdentity : NT AUTHORITY\SYSTEM
+Requested URL : http://localhost:8012/hr-HR/home
+	Inner Exception
+	---------------
+	Type : System.NullReferenceException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+	Message : Object reference not set to an instance of an object.
+	Source : System.Web
+	Help link : 
+	Data : System.Collections.ListDictionaryInternal
+	TargetSite : Void ProcessImplicitResources(System.Web.UI.ParsedAttributeCollection)
+	HResult : -2147467261
+	Stack Trace :    at System.Web.UI.ControlBuilder.ProcessImplicitResources(ParsedAttributeCollection attribs)
+	   at System.Web.UI.ControlBuilder.PreprocessAttributes(ParsedAttributeCollection attribs)
+	   at System.Web.UI.ControlBuilder.Init(TemplateParser parser, ControlBuilder parentBuilder, Type type, String tagName, String id, IDictionary attribs)
+	   at System.Web.UI.ControlBuilder.CreateBuilderFromType(TemplateParser parser, ControlBuilder parentBuilder, Type type, String tagName, String id, IDictionary attribs, Int32 line, String sourceFileName)
+	   at System.Web.UI.ControlBuilder.CreateChildBuilder(String filter, String tagName, IDictionary attribs, TemplateParser parser, ControlBuilder parentBuilder, String id, Int32 line, VirtualPath virtualPath, Type& childType, Boolean defaultProperty)
+	   at System.Web.UI.TemplateParser.ProcessBeginTag(Match match, String inputText)
+	   at System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+
+
+
+Category: ErrorLog
+
+Priority: 0
+
+EventId: 90000
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: OSMAK
+
+App Domain: /LM/W3SVC/7/ROOT-1-129991974196401940
+
+ProcessId: 8308
+
+Process Name: c:\windows\system32\inetsrv\w3wp.exe
+
+Thread Name: 
+
+Win32 ThreadId:10312
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 5.12.2012. 16:10:57
+
+Message: HandlingInstanceID: 55d0aea9-cfdf-4d36-828e-50c9f74518b0
+An exception of type 'System.Web.HttpParseException' occurred and was caught.
+-----------------------------------------------------------------------------
+12/05/2012 18:10:57
+Type : System.Web.HttpParseException, System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+Message : Object reference not set to an instance of an object.
+Source : System.Web
+Help link : 
+FileName : Access failed
+VirtualPath : 
+Line : 0
+ParserErrors : System.Web.ParserErrorCollection
+WebEventCode : 0
+ErrorCode : -2147467259
+Data : System.Collections.ListDictionaryInternal
+TargetSite : Void ProcessException(System.Exception)
+HResult : -2147467259
+Stack Trace :    at System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   at System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   at System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+
+Additional Info:
+
+MachineName : OSMAK
+TimeStamp : 5.12.2012. 16:10:57
+FullName : Telerik.Sitefinity.Utilities, Version=5.2.3800.0, Culture=neutral, PublicKeyToken=b28c218413bdf563
+AppDomainName : /LM/W3SVC/7/ROOT-1-129991974196401940
+ThreadIdentity : admin
+WindowsIdentity : NT AUTHORITY\SYSTEM
+Requested URL : http://localhost:8012/hr-HR/home
+	Inner Exception
+	---------------
+	Type : System.NullReferenceException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+	Message : Object reference not set to an instance of an object.
+	Source : System.Web
+	Help link : 
+	Data : System.Collections.ListDictionaryInternal
+	TargetSite : Void ProcessImplicitResources(System.Web.UI.ParsedAttributeCollection)
+	HResult : -2147467261
+	Stack Trace :    at System.Web.UI.ControlBuilder.ProcessImplicitResources(ParsedAttributeCollection attribs)
+	   at System.Web.UI.ControlBuilder.PreprocessAttributes(ParsedAttributeCollection attribs)
+	   at System.Web.UI.ControlBuilder.Init(TemplateParser parser, ControlBuilder parentBuilder, Type type, String tagName, String id, IDictionary attribs)
+	   at System.Web.UI.ControlBuilder.CreateBuilderFromType(TemplateParser parser, ControlBuilder parentBuilder, Type type, String tagName, String id, IDictionary attribs, Int32 line, String sourceFileName)
+	   at System.Web.UI.ControlBuilder.CreateChildBuilder(String filter, String tagName, IDictionary attribs, TemplateParser parser, ControlBuilder parentBuilder, String id, Int32 line, VirtualPath virtualPath, Type& childType, Boolean defaultProperty)
+	   at System.Web.UI.TemplateParser.ProcessBeginTag(Match match, String inputText)
+	   at System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+
+
+
+Category: ErrorLog
+
+Priority: 0
+
+EventId: 90000
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: OSMAK
+
+App Domain: /LM/W3SVC/7/ROOT-1-129991974196401940
+
+ProcessId: 8308
+
+Process Name: c:\windows\system32\inetsrv\w3wp.exe
+
+Thread Name: 
+
+Win32 ThreadId:5532
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 5.12.2012. 16:12:41
+
+Message: HandlingInstanceID: 77c23bee-db2d-466d-acd4-ed2adb8e336a
+An exception of type 'System.Web.HttpParseException' occurred and was caught.
+-----------------------------------------------------------------------------
+12/05/2012 18:12:41
+Type : System.Web.HttpParseException, System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+Message : Object reference not set to an instance of an object.
+Source : System.Web
+Help link : 
+FileName : Access failed
+VirtualPath : 
+Line : 0
+ParserErrors : System.Web.ParserErrorCollection
+WebEventCode : 0
+ErrorCode : -2147467259
+Data : System.Collections.ListDictionaryInternal
+TargetSite : Void ProcessException(System.Exception)
+HResult : -2147467259
+Stack Trace :    at System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   at System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   at System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+
+Additional Info:
+
+MachineName : OSMAK
+TimeStamp : 5.12.2012. 16:12:41
+FullName : Telerik.Sitefinity.Utilities, Version=5.2.3800.0, Culture=neutral, PublicKeyToken=b28c218413bdf563
+AppDomainName : /LM/W3SVC/7/ROOT-1-129991974196401940
+ThreadIdentity : admin
+WindowsIdentity : NT AUTHORITY\SYSTEM
+Requested URL : http://localhost:8012/hr-HR/home
+	Inner Exception
+	---------------
+	Type : System.NullReferenceException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+	Message : Object reference not set to an instance of an object.
+	Source : System.Web
+	Help link : 
+	Data : System.Collections.ListDictionaryInternal
+	TargetSite : Void ProcessImplicitResources(System.Web.UI.ParsedAttributeCollection)
+	HResult : -2147467261
+	Stack Trace :    at System.Web.UI.ControlBuilder.ProcessImplicitResources(ParsedAttributeCollection attribs)
+	   at System.Web.UI.ControlBuilder.PreprocessAttributes(ParsedAttributeCollection attribs)
+	   at System.Web.UI.ControlBuilder.Init(TemplateParser parser, ControlBuilder parentBuilder, Type type, String tagName, String id, IDictionary attribs)
+	   at System.Web.UI.ControlBuilder.CreateBuilderFromType(TemplateParser parser, ControlBuilder parentBuilder, Type type, String tagName, String id, IDictionary attribs, Int32 line, String sourceFileName)
+	   at System.Web.UI.ControlBuilder.CreateChildBuilder(String filter, String tagName, IDictionary attribs, TemplateParser parser, ControlBuilder parentBuilder, String id, Int32 line, VirtualPath virtualPath, Type& childType, Boolean defaultProperty)
+	   at System.Web.UI.TemplateParser.ProcessBeginTag(Match match, String inputText)
+	   at System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+
+
+
+Category: ErrorLog
+
+Priority: 0
+
+EventId: 90000
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: OSMAK
+
+App Domain: /LM/W3SVC/7/ROOT-1-129991974196401940
+
+ProcessId: 8308
+
+Process Name: c:\windows\system32\inetsrv\w3wp.exe
+
+Thread Name: 
+
+Win32 ThreadId:11236
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 5.12.2012. 16:12:57
+
+Message: HandlingInstanceID: e3c33b38-187e-467a-9c5a-be69db060f72
+An exception of type 'System.Web.HttpParseException' occurred and was caught.
+-----------------------------------------------------------------------------
+12/05/2012 18:12:57
+Type : System.Web.HttpParseException, System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+Message : Object reference not set to an instance of an object.
+Source : System.Web
+Help link : 
+FileName : Access failed
+VirtualPath : 
+Line : 0
+ParserErrors : System.Web.ParserErrorCollection
+WebEventCode : 0
+ErrorCode : -2147467259
+Data : System.Collections.ListDictionaryInternal
+TargetSite : Void ProcessException(System.Exception)
+HResult : -2147467259
+Stack Trace :    at System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   at System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   at System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+
+Additional Info:
+
+MachineName : OSMAK
+TimeStamp : 5.12.2012. 16:12:57
+FullName : Telerik.Sitefinity.Utilities, Version=5.2.3800.0, Culture=neutral, PublicKeyToken=b28c218413bdf563
+AppDomainName : /LM/W3SVC/7/ROOT-1-129991974196401940
+ThreadIdentity : admin
+WindowsIdentity : NT AUTHORITY\SYSTEM
+Requested URL : http://localhost:8012/hr-HR/home
+	Inner Exception
+	---------------
+	Type : System.NullReferenceException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+	Message : Object reference not set to an instance of an object.
+	Source : System.Web
+	Help link : 
+	Data : System.Collections.ListDictionaryInternal
+	TargetSite : Void ProcessImplicitResources(System.Web.UI.ParsedAttributeCollection)
+	HResult : -2147467261
+	Stack Trace :    at System.Web.UI.ControlBuilder.ProcessImplicitResources(ParsedAttributeCollection attribs)
+	   at System.Web.UI.ControlBuilder.PreprocessAttributes(ParsedAttributeCollection attribs)
+	   at System.Web.UI.ControlBuilder.Init(TemplateParser parser, ControlBuilder parentBuilder, Type type, String tagName, String id, IDictionary attribs)
+	   at System.Web.UI.ControlBuilder.CreateBuilderFromType(TemplateParser parser, ControlBuilder parentBuilder, Type type, String tagName, String id, IDictionary attribs, Int32 line, String sourceFileName)
+	   at System.Web.UI.ControlBuilder.CreateChildBuilder(String filter, String tagName, IDictionary attribs, TemplateParser parser, ControlBuilder parentBuilder, String id, Int32 line, VirtualPath virtualPath, Type& childType, Boolean defaultProperty)
+	   at System.Web.UI.TemplateParser.ProcessBeginTag(Match match, String inputText)
+	   at System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+
+
+
+Category: ErrorLog
+
+Priority: 0
+
+EventId: 90000
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: OSMAK
+
+App Domain: /LM/W3SVC/7/ROOT-1-129991974196401940
+
+ProcessId: 8308
+
+Process Name: c:\windows\system32\inetsrv\w3wp.exe
+
+Thread Name: 
+
+Win32 ThreadId:13236
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 5.12.2012. 16:13:29
+
+Message: HandlingInstanceID: 512c5123-2ccd-4ccb-bddc-1312c200602e
+An exception of type 'System.Web.HttpParseException' occurred and was caught.
+-----------------------------------------------------------------------------
+12/05/2012 18:13:29
+Type : System.Web.HttpParseException, System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+Message : Object reference not set to an instance of an object.
+Source : System.Web
+Help link : 
+FileName : Access failed
+VirtualPath : 
+Line : 0
+ParserErrors : System.Web.ParserErrorCollection
+WebEventCode : 0
+ErrorCode : -2147467259
+Data : System.Collections.ListDictionaryInternal
+TargetSite : Void ProcessException(System.Exception)
+HResult : -2147467259
+Stack Trace :    at System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   at System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   at System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+
+Additional Info:
+
+MachineName : OSMAK
+TimeStamp : 5.12.2012. 16:13:29
+FullName : Telerik.Sitefinity.Utilities, Version=5.2.3800.0, Culture=neutral, PublicKeyToken=b28c218413bdf563
+AppDomainName : /LM/W3SVC/7/ROOT-1-129991974196401940
+ThreadIdentity : admin
+WindowsIdentity : NT AUTHORITY\SYSTEM
+Requested URL : http://localhost:8012/hr-HR/home
+	Inner Exception
+	---------------
+	Type : System.NullReferenceException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+	Message : Object reference not set to an instance of an object.
+	Source : System.Web
+	Help link : 
+	Data : System.Collections.ListDictionaryInternal
+	TargetSite : Void ProcessImplicitResources(System.Web.UI.ParsedAttributeCollection)
+	HResult : -2147467261
+	Stack Trace :    at System.Web.UI.ControlBuilder.ProcessImplicitResources(ParsedAttributeCollection attribs)
+	   at System.Web.UI.ControlBuilder.PreprocessAttributes(ParsedAttributeCollection attribs)
+	   at System.Web.UI.ControlBuilder.Init(TemplateParser parser, ControlBuilder parentBuilder, Type type, String tagName, String id, IDictionary attribs)
+	   at System.Web.UI.ControlBuilder.CreateBuilderFromType(TemplateParser parser, ControlBuilder parentBuilder, Type type, String tagName, String id, IDictionary attribs, Int32 line, String sourceFileName)
+	   at System.Web.UI.ControlBuilder.CreateChildBuilder(String filter, String tagName, IDictionary attribs, TemplateParser parser, ControlBuilder parentBuilder, String id, Int32 line, VirtualPath virtualPath, Type& childType, Boolean defaultProperty)
+	   at System.Web.UI.TemplateParser.ProcessBeginTag(Match match, String inputText)
+	   at System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+
+
+
+Category: ErrorLog
+
+Priority: 0
+
+EventId: 90000
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: OSMAK
+
+App Domain: /LM/W3SVC/7/ROOT-1-129991974196401940
+
+ProcessId: 8308
+
+Process Name: c:\windows\system32\inetsrv\w3wp.exe
+
+Thread Name: 
+
+Win32 ThreadId:7824
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 5.12.2012. 16:15:03
+
+Message: HandlingInstanceID: eb79a018-9a24-4765-b572-d66f69d48cfa
+An exception of type 'System.Web.HttpParseException' occurred and was caught.
+-----------------------------------------------------------------------------
+12/05/2012 18:15:03
+Type : System.Web.HttpParseException, System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+Message : Object reference not set to an instance of an object.
+Source : System.Web
+Help link : 
+FileName : Access failed
+VirtualPath : 
+Line : 0
+ParserErrors : System.Web.ParserErrorCollection
+WebEventCode : 0
+ErrorCode : -2147467259
+Data : System.Collections.ListDictionaryInternal
+TargetSite : Void ProcessException(System.Exception)
+HResult : -2147467259
+Stack Trace :    at System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   at System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   at System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+
+Additional Info:
+
+MachineName : OSMAK
+TimeStamp : 5.12.2012. 16:15:03
+FullName : Telerik.Sitefinity.Utilities, Version=5.2.3800.0, Culture=neutral, PublicKeyToken=b28c218413bdf563
+AppDomainName : /LM/W3SVC/7/ROOT-1-129991974196401940
+ThreadIdentity : admin
+WindowsIdentity : NT AUTHORITY\SYSTEM
+Requested URL : http://localhost:8012/hr-HR/home
+	Inner Exception
+	---------------
+	Type : System.NullReferenceException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+	Message : Object reference not set to an instance of an object.
+	Source : System.Web
+	Help link : 
+	Data : System.Collections.ListDictionaryInternal
+	TargetSite : Void ProcessImplicitResources(System.Web.UI.ParsedAttributeCollection)
+	HResult : -2147467261
+	Stack Trace :    at System.Web.UI.ControlBuilder.ProcessImplicitResources(ParsedAttributeCollection attribs)
+	   at System.Web.UI.ControlBuilder.PreprocessAttributes(ParsedAttributeCollection attribs)
+	   at System.Web.UI.ControlBuilder.Init(TemplateParser parser, ControlBuilder parentBuilder, Type type, String tagName, String id, IDictionary attribs)
+	   at System.Web.UI.ControlBuilder.CreateBuilderFromType(TemplateParser parser, ControlBuilder parentBuilder, Type type, String tagName, String id, IDictionary attribs, Int32 line, String sourceFileName)
+	   at System.Web.UI.ControlBuilder.CreateChildBuilder(String filter, String tagName, IDictionary attribs, TemplateParser parser, ControlBuilder parentBuilder, String id, Int32 line, VirtualPath virtualPath, Type& childType, Boolean defaultProperty)
+	   at System.Web.UI.TemplateParser.ProcessBeginTag(Match match, String inputText)
+	   at System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+
+
+
+Category: ErrorLog
+
+Priority: 0
+
+EventId: 90000
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: OSMAK
+
+App Domain: /LM/W3SVC/7/ROOT-1-129991974196401940
+
+ProcessId: 8308
+
+Process Name: c:\windows\system32\inetsrv\w3wp.exe
+
+Thread Name: 
+
+Win32 ThreadId:7824
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 5.12.2012. 16:15:25
+
+Message: HandlingInstanceID: 7202b1a5-7128-4b60-baea-e08ab80f9a20
+An exception of type 'System.Web.HttpParseException' occurred and was caught.
+-----------------------------------------------------------------------------
+12/05/2012 18:15:25
+Type : System.Web.HttpParseException, System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+Message : Object reference not set to an instance of an object.
+Source : System.Web
+Help link : 
+FileName : Access failed
+VirtualPath : 
+Line : 0
+ParserErrors : System.Web.ParserErrorCollection
+WebEventCode : 0
+ErrorCode : -2147467259
+Data : System.Collections.ListDictionaryInternal
+TargetSite : Void ProcessException(System.Exception)
+HResult : -2147467259
+Stack Trace :    at System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   at System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   at System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+
+Additional Info:
+
+MachineName : OSMAK
+TimeStamp : 5.12.2012. 16:15:25
+FullName : Telerik.Sitefinity.Utilities, Version=5.2.3800.0, Culture=neutral, PublicKeyToken=b28c218413bdf563
+AppDomainName : /LM/W3SVC/7/ROOT-1-129991974196401940
+ThreadIdentity : admin
+WindowsIdentity : NT AUTHORITY\SYSTEM
+Requested URL : http://localhost:8012/hr-HR/home
+	Inner Exception
+	---------------
+	Type : System.NullReferenceException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+	Message : Object reference not set to an instance of an object.
+	Source : System.Web
+	Help link : 
+	Data : System.Collections.ListDictionaryInternal
+	TargetSite : Void ProcessImplicitResources(System.Web.UI.ParsedAttributeCollection)
+	HResult : -2147467261
+	Stack Trace :    at System.Web.UI.ControlBuilder.ProcessImplicitResources(ParsedAttributeCollection attribs)
+	   at System.Web.UI.ControlBuilder.PreprocessAttributes(ParsedAttributeCollection attribs)
+	   at System.Web.UI.ControlBuilder.Init(TemplateParser parser, ControlBuilder parentBuilder, Type type, String tagName, String id, IDictionary attribs)
+	   at System.Web.UI.ControlBuilder.CreateBuilderFromType(TemplateParser parser, ControlBuilder parentBuilder, Type type, String tagName, String id, IDictionary attribs, Int32 line, String sourceFileName)
+	   at System.Web.UI.ControlBuilder.CreateChildBuilder(String filter, String tagName, IDictionary attribs, TemplateParser parser, ControlBuilder parentBuilder, String id, Int32 line, VirtualPath virtualPath, Type& childType, Boolean defaultProperty)
+	   at System.Web.UI.TemplateParser.ProcessBeginTag(Match match, String inputText)
+	   at System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+
+
+
+Category: ErrorLog
+
+Priority: 0
+
+EventId: 90000
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: OSMAK
+
+App Domain: /LM/W3SVC/7/ROOT-1-129991974196401940
+
+ProcessId: 8308
+
+Process Name: c:\windows\system32\inetsrv\w3wp.exe
+
+Thread Name: 
+
+Win32 ThreadId:7824
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 5.12.2012. 16:19:28
+
+Message: HandlingInstanceID: bcc7b0c9-8b1a-46fc-a938-4833193464f9
+An exception of type 'System.Web.HttpException' occurred and was caught.
+------------------------------------------------------------------------
+12/05/2012 18:19:28
+Type : System.Web.HttpException, System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+Message : Request timed out.
+Source : 
+Help link : 
+WebEventCode : 3001
+ErrorCode : -2147467259
+Data : System.Collections.ListDictionaryInternal
+TargetSite : 
+HResult : -2147467259
+Stack Trace : The stack trace is unavailable.
+Additional Info:
+
+MachineName : OSMAK
+TimeStamp : 5.12.2012. 16:19:28
+FullName : Telerik.Sitefinity.Utilities, Version=5.2.3800.0, Culture=neutral, PublicKeyToken=b28c218413bdf563
+AppDomainName : /LM/W3SVC/7/ROOT-1-129991974196401940
+ThreadIdentity : admin
+WindowsIdentity : NT AUTHORITY\SYSTEM
+Requested URL : http://localhost:8012/hr-HR/home
+
+
+Category: ErrorLog
+
+Priority: 0
+
+EventId: 90000
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: OSMAK
+
+App Domain: /LM/W3SVC/7/ROOT-1-129991974196401940
+
+ProcessId: 8308
+
+Process Name: c:\windows\system32\inetsrv\w3wp.exe
+
+Thread Name: 
+
+Win32 ThreadId:10488
+
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 5.12.2012. 16:21:25
+
+Message: HandlingInstanceID: 4aff3fe5-3a2f-4db8-b2f0-df9eb14005d2
+An exception of type 'System.Web.HttpParseException' occurred and was caught.
+-----------------------------------------------------------------------------
+12/05/2012 18:21:25
+Type : System.Web.HttpParseException, System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+Message : Object reference not set to an instance of an object.
+Source : System.Web
+Help link : 
+FileName : Access failed
+VirtualPath : 
+Line : 0
+ParserErrors : System.Web.ParserErrorCollection
+WebEventCode : 0
+ErrorCode : -2147467259
+Data : System.Collections.ListDictionaryInternal
+TargetSite : Void ProcessException(System.Exception)
+HResult : -2147467259
+Stack Trace :    at System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   at System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   at System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+
+Additional Info:
+
+MachineName : OSMAK
+TimeStamp : 5.12.2012. 16:21:25
+FullName : Telerik.Sitefinity.Utilities, Version=5.2.3800.0, Culture=neutral, PublicKeyToken=b28c218413bdf563
+AppDomainName : /LM/W3SVC/7/ROOT-2-129991980625391940
+ThreadIdentity : admin
+WindowsIdentity : NT AUTHORITY\SYSTEM
+Requested URL : http://localhost:8012/hr-HR/home
+	Inner Exception
+	---------------
+	Type : System.NullReferenceException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+	Message : Object reference not set to an instance of an object.
+	Source : System.Web
+	Help link : 
+	Data : System.Collections.ListDictionaryInternal
+	TargetSite : Void ProcessImplicitResources(System.Web.UI.ParsedAttributeCollection)
+	HResult : -2147467261
+	Stack Trace :    at System.Web.UI.ControlBuilder.ProcessImplicitResources(ParsedAttributeCollection attribs)
+	   at System.Web.UI.ControlBuilder.PreprocessAttributes(ParsedAttributeCollection attribs)
+	   at System.Web.UI.ControlBuilder.Init(TemplateParser parser, ControlBuilder parentBuilder, Type type, String tagName, String id, IDictionary attribs)
+	   at System.Web.UI.ControlBuilder.CreateBuilderFromType(TemplateParser parser, ControlBuilder parentBuilder, Type type, String tagName, String id, IDictionary attribs, Int32 line, String sourceFileName)
+	   at System.Web.UI.ControlBuilder.CreateChildBuilder(String filter, String tagName, IDictionary attribs, TemplateParser parser, ControlBuilder parentBuilder, String id, Int32 line, VirtualPath virtualPath, Type& childType, Boolean defaultProperty)
+	   at System.Web.UI.TemplateParser.ProcessBeginTag(Match match, String inputText)
+	   at System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+
+
+
+Category: ErrorLog
+
+Priority: 0
+
+EventId: 90000
+
+Severity: Error
+
+Title:Enterprise Library Exception Handling
+
+Machine: OSMAK
+
+App Domain: /LM/W3SVC/7/ROOT-2-129991980625391940
+
+ProcessId: 8308
+
+Process Name: c:\windows\system32\inetsrv\w3wp.exe
+
+Thread Name: 
+
+Win32 ThreadId:4968
+
+Extended Properties: 
+----------------------------------------
