@@ -375,6 +375,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Master\Default.Master.cs">
+      <DependentUpon>Default.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Master\Default.Master.designer.cs">
+      <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
     <Compile Include="AzureWebRole.cs" />
     <Compile Include="Patches\ImplicitLocalization\ExtendedResourceProviderFactory2.cs" />
     <Compile Include="Patches\ImplicitLocalization\IKeyFormatter.cs" />
@@ -514,6 +521,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Sitefinity\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Master\Default.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Master\App_LocalResources\Default.Master.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Master\App_LocalResources\Default.Master.bg.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Master\App_LocalResources\Default.Master.hr-HR.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

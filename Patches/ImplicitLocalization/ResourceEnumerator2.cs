@@ -111,6 +111,8 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
             if (this.currentFile == -1)
                 return false;
 
+            this.ParseCulture(this.resourceFilePaths[this.currentFile]);
+
             if (this.xmlReader == null)
                 this.xmlReader = XmlReader.Create(this.resourceFilePaths[this.currentFile]);
 
@@ -167,7 +169,6 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
             {
                 this.xmlReader = null;
                 this.currentFile++;
-                this.ParseCulture(this.resourceFilePaths[this.currentFile]);
             }
             else
             {

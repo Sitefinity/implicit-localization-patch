@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Resources;
@@ -88,7 +89,10 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
             if (string.IsNullOrEmpty(resourceKey))
                 throw new ArgumentNullException("resourceKey");
 
-            return this.FindLocalizationEntry(resourceKey, culture.Name).Value;
+            if (culture == null)
+                culture = CultureInfo.CurrentUICulture;
+
+            return this.FindLocalizationEntry(resourceKey, culture).Value;
         }
 
         /// <summary>
@@ -119,7 +123,40 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
         /// </returns>
         public ICollection GetImplicitResourceKeys(string keyPrefix)
         {
-            throw new NotImplementedException();
+            List<ImplicitResourceKey> keys = new List<ImplicitResourceKey>();
+
+            foreach (DictionaryEntry dictentry in this.ResourceReader)
+            {
+                string key = (string)dictentry.Key;
+
+                if (key.StartsWith(keyPrefix + ".", StringComparison.InvariantCultureIgnoreCase) == true)
+                {
+                    string keyproperty = String.Empty;
+                    if (key.Length > (keyPrefix.Length + 1))
+                    {
+                        int pos = key.IndexOf('.');
+                        if ((pos > 0) && (pos == keyPrefix.Length))
+                        {
+                            keyproperty = key.Substring(pos + 1);
+                            if (String.IsNullOrEmpty(keyproperty) == false)
+                            {
+                                string prop = keyproperty;
+                                string filter = "";
+                                if (keyproperty.IndexOf("$") > -1)
+                                {
+                                    prop = keyproperty.Substring(0, keyproperty.IndexOf("$"));
+                                    filter = keyproperty.Substring(keyproperty.IndexOf("$") + 1);
+                                }
+
+                                Debug.WriteLine("Adding Implicit Key: " + keyPrefix + " - " + prop);
+                                ImplicitResourceKey implicitkey = new ImplicitResourceKey(filter, keyPrefix, prop);
+                                keys.Add(implicitkey);
+                            }
+                        }
+                    }
+                }
+            }
+            return keys;
         }
 
         /// <summary>
@@ -155,20 +192,28 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
 
         }
 
-        protected virtual LocalizationEntry FindLocalizationEntry(string key, string culture)
+        protected virtual LocalizationEntry FindLocalizationEntry(string key, CultureInfo culture)
         {
             if (this.cache == null)
                 this.LoadCache();
 
             var entries = this.cache.Where(l => l.Key == key);
             
-            if(string.IsNullOrEmpty(culture))
+            if(culture == CultureInfo.InvariantCulture)
                 entries = entries.Where(e => e.Culture == null);
             else
-                entries = entries.Where(e => e.Culture == culture);
+                entries = entries.Where(e => e.Culture == culture.Name);
 
-            var entry = entries.SingleOrDefault();
-            return entry;
+            if (entries.Count() == 1)
+            {
+                return entries.SingleOrDefault();
+            }
+            else if(culture.Parent != null)
+            {
+                return this.FindLocalizationEntry(key, culture.Parent);
+            }
+
+            throw new InvalidOperationException();
         }
 
         #endregion
