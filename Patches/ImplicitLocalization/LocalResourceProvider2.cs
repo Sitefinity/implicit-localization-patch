@@ -50,6 +50,28 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
 
         #endregion
 
+        #region Properties
+
+        /// <summary>
+        /// Gets or sets the instance of the <see cref="IKeyFormatter"/> to be used by the 
+        /// local resource provider.
+        /// </summary>
+        public IKeyFormatter KeyFormatter
+        {
+            get
+            {
+                if (this.keyFormatter == null)
+                    this.keyFormatter = new KeyFormatter();
+                return this.keyFormatter;
+            }
+            set
+            {
+                this.keyFormatter = value;
+            }
+        }
+
+        #endregion
+
         #region IResourceProvider members
 
         /// <summary>
@@ -66,15 +88,7 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
             if (string.IsNullOrEmpty(resourceKey))
                 throw new ArgumentNullException("resourceKey");
 
-            var resourceEnumerator = this.ResourceReader.GetEnumerator();
-            while (resourceEnumerator.MoveNext())
-            {
-                var entry = resourceEnumerator.Entry;
-                if(entry.Key.ToString().Equals(resourceKey, StringComparison.InvariantCultureIgnoreCase))
-                    return entry.Value;
-            }
-
-            return null;
+            return this.FindLocalizationEntry(resourceKey, culture.Name).Value;
         }
 
         /// <summary>
@@ -87,7 +101,7 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
             get 
             { 
                 var paths = this.resourceFileResolver.ResolveResourceFilePaths(this.virtualPath);
-                return new LocalResourceReader2(paths);
+                return new LocalResourceReader2(paths, this.KeyFormatter);
             }
         }
 
@@ -125,10 +139,46 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
 
         #endregion
 
+        #region Non-public methods
+
+        protected virtual void LoadCache()
+        {
+            this.cache = new List<LocalizationEntry>();
+
+            var enumerator = this.ResourceReader.GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                var localizationEntry = this.KeyFormatter.ParseCompositeKey(enumerator.Entry.Key.ToString());
+                localizationEntry.Value = enumerator.Entry.Value.ToString();
+                this.cache.Add(localizationEntry);
+            }
+
+        }
+
+        protected virtual LocalizationEntry FindLocalizationEntry(string key, string culture)
+        {
+            if (this.cache == null)
+                this.LoadCache();
+
+            var entries = this.cache.Where(l => l.Key == key);
+            
+            if(string.IsNullOrEmpty(culture))
+                entries = entries.Where(e => e.Culture == null);
+            else
+                entries = entries.Where(e => e.Culture == culture);
+
+            var entry = entries.SingleOrDefault();
+            return entry;
+        }
+
+        #endregion
+
         #region Private fields and constants
 
         private string virtualPath;
         private IResourceFileResolver resourceFileResolver;
+        private List<LocalizationEntry> cache;
+        private IKeyFormatter keyFormatter;
 
         #endregion
     }

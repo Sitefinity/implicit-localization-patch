@@ -9,13 +9,18 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
     {
         #region Construction
 
+        public LocalResourceReader2(string[] resourceFilePaths)
+            : this(resourceFilePaths, new KeyFormatter())
+        {
+        }
+
         /// <summary>
         /// Creates a new instance of <see cref="LocalResourceReader2"/>.
         /// </summary>
         /// <param name="resourceFilePaths">
         /// The array of resource file paths that should be read.
         /// </param>
-        public LocalResourceReader2(string[] resourceFilePaths)
+        public LocalResourceReader2(string[] resourceFilePaths, IKeyFormatter keyFormatter)
         {
             if (resourceFilePaths == null)
                 throw new ArgumentNullException("resourceFilePaths");
@@ -23,6 +28,10 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
             if (resourceFilePaths.Length == 0)
                 throw new ArgumentException("At least one resource file path must be passed.");
 
+            if (keyFormatter == null)
+                throw new ArgumentNullException("keyFormatter");
+
+            this.keyFormatter = keyFormatter;
             this.resourceFilePaths = resourceFilePaths;
         }
 
@@ -46,7 +55,7 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
         /// <returns>A dictionary enumerator for the resources for this reader.</returns>
         public IDictionaryEnumerator GetEnumerator()
         {
-            return new ResourceEnumerator2(this.resourceFilePaths);
+            return new ResourceEnumerator2(this.resourceFilePaths, this.keyFormatter);
         }
 
         /// <summary>
@@ -75,6 +84,7 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
         #region Private fields and constants
 
         private string[] resourceFilePaths;
+        private IKeyFormatter keyFormatter;
 
         #endregion
     }

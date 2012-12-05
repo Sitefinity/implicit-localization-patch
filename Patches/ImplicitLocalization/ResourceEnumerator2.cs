@@ -9,12 +9,18 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
     {
         #region Construction
 
+        public ResourceEnumerator2(string[] resourceFilePaths)
+            : this(resourceFilePaths, new KeyFormatter())
+        {
+        }
+
         /// <summary>
         /// Creates a new instance of the <see cref="ResourceEnumerator2"/> type for the
         /// provided resourceFilePaths.
         /// </summary>
         /// <param name="resourceFilePaths"></param>
-        public ResourceEnumerator2(string[] resourceFilePaths)
+        /// <param name="keyFormatter">Instance of the <see cref="IKeyFormatter"/> to use when formatting keys.</param>
+        public ResourceEnumerator2(string[] resourceFilePaths, IKeyFormatter keyFormatter)
         {
             if (resourceFilePaths == null)
                 throw new ArgumentNullException("resourceFilePaths");
@@ -22,7 +28,11 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
             if (resourceFilePaths.Length == 0)
                 throw new ArgumentException("At least one resource file path must be passed.");
 
+            if (keyFormatter == null)
+                throw new ArgumentNullException("keyFormatter");
+
             this.resourceFilePaths = resourceFilePaths;
+            this.keyFormatter = keyFormatter;
         }
 
         #endregion
@@ -98,8 +108,11 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
         /// </returns>
         public bool MoveNext()
         {
+            if (this.currentFile == -1)
+                return false;
+
             if (this.xmlReader == null)
-                this.xmlReader = XmlReader.Create(this.resourceFilePaths[0]);
+                this.xmlReader = XmlReader.Create(this.resourceFilePaths[this.currentFile]);
 
             this.key = null;
             this.value = null;
@@ -109,7 +122,11 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
                 if (this.xmlReader.NodeType == XmlNodeType.Element && this.xmlReader.Name == "data")
                 {
                     this.xmlReader.MoveToAttribute("name");
-                    this.key = this.xmlReader.Value;
+                    this.key = this.keyFormatter.BuildCompositeKey(new LocalizationEntry()
+                    {
+                        Key = this.xmlReader.Value,
+                        Culture = this.culture
+                    });
 
                     while (this.xmlReader.Read())
                     {
@@ -127,7 +144,8 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
 
             if (this.xmlReader.EOF)
             {
-                return false;
+                this.TryLoadNextFile();
+                return this.MoveNext();
             }
 
             return true;
@@ -141,12 +159,47 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
 
         #endregion
 
+        #region Non-public methods
+
+        protected virtual void TryLoadNextFile()
+        {
+            if (this.currentFile < this.resourceFilePaths.Length - 1)
+            {
+                this.xmlReader = null;
+                this.currentFile++;
+                this.ParseCulture(this.resourceFilePaths[this.currentFile]);
+            }
+            else
+            {
+                this.currentFile = -1;
+                this.xmlReader = null;
+            }
+        }
+
+        protected void ParseCulture(string resourceFilePath)
+        {
+            var pathSegments = resourceFilePath.Split('.');
+            if (pathSegments.Length == 3)
+            {
+                this.culture = string.Empty;
+            }
+            if (pathSegments.Length == 4)
+            {
+                this.culture = pathSegments[2];
+            }
+        }
+
+        #endregion
+
         #region Private fields and constants
 
         private object key;
         private object value;
         private XmlReader xmlReader;
         private string[] resourceFilePaths;
+        private int currentFile = 0;
+        private string culture;
+        private IKeyFormatter keyFormatter;
 
         #endregion 
     }
