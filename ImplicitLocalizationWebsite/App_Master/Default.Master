@@ -1,0 +1,27 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" %>
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+        
+        <asp:Literal ID="literal1" runat="server" meta:resourcekey="Literal1"></asp:Literal>
+        <asp:Label ID="label1" runat="server" meta:resourcekey="Label1"></asp:Label>
+            
+        <div id="Header">
+            <asp:contentplaceholder id="Contentplaceholder1" runat="server" />
+        </div>
+        <div id="Content">
+            <asp:contentplaceholder id="Contentplaceholder2" runat="server" />
+        </div>
+        <div id="Footer">
+            <asp:contentplaceholder id="Contentplaceholder3" runat="server" />
+        </div>
+    </form>
+</body>
+</html>

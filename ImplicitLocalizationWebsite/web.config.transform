@@ -1,0 +1,5 @@
+﻿<configuration>
+  <system.web>
+    <globalization uiCulture="auto" culture="auto" resourceProviderFactoryType="SitefinityWebApp.Patches.ImplicitLocalization.ExtendedResourceProviderFactory2" />
+  </system.web>
+</configuration>
