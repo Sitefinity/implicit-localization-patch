@@ -123,4 +123,7 @@
   <data name="Literal1.Text" xml:space="preserve">
     <value>Hello world!</value>
   </data>
+  <data name="Literal3.Text" xml:space="preserve">
+    <value>1. Text!</value>
+  </data>
 </root>

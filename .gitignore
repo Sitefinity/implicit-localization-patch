@@ -1,2 +1,21 @@
 *.lic
 TestResults
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+
+# Others
+[Bb]in
+[Oo]bj
+[Dd]ebug
+sql
+TestResults
+[Tt]est[Rr]esult*
+*.Cache
+ClientBin
+[Ss]tyle[Cc]op.*
+~$*
+*.dbmdl
+Generated_Code #added for RIA/Silverlight projects

@@ -121,6 +121,10 @@ namespace ImplicitLocalizationPatch.Test
             Assert.AreEqual("Hello world!", resEnumerator.Entry.Value);
 
             // make sure there is no thrid entry
+            Assert.IsTrue(resEnumerator.MoveNext());
+            Assert.AreEqual("Literal3.Text", resEnumerator.Entry.Key);
+            Assert.AreEqual("1. Text!", resEnumerator.Entry.Value);
+            
             Assert.IsFalse(resEnumerator.MoveNext());
         }
 

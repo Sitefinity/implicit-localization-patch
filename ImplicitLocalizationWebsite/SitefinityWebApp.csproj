@@ -521,18 +521,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Sitefinity\" />
+    <Folder Include="App_Master\App_LocalResources\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Master\Default.Master" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_Master\App_LocalResources\Default.Master.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_Master\App_LocalResources\Default.Master.bg.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_Master\App_LocalResources\Default.Master.hr-HR.resx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="web.config.transform" />

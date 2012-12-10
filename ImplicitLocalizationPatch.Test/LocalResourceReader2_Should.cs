@@ -24,20 +24,6 @@ namespace ImplicitLocalizationPatch.Test
         }
 
         [TestMethod]
-        public void ThrowException_WhenInstanceIsConstructedWithResourceFilePathsArgumentsBeingEmptyArray()
-        {
-            try
-            {
-                new LocalResourceReader2(new string[0]);
-                Assert.Fail("ArgumentException was supposed to be thrown.");
-            }
-            catch (ArgumentException ex)
-            {
-                Assert.AreEqual("At least one resource file path must be passed.", ex.Message);
-            }
-        }
-
-        [TestMethod]
         public void AssignResourceFilePathsField_WhenInstanceIsConstructed()
         {
             var filePaths = new string[] { "file1.aspx" };

@@ -66,7 +66,7 @@
     <Compile Include="ResourceFileResolverMock.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\implicit-localization-patch\SitefinityWebApp.csproj">
+    <ProjectReference Include="..\ImplicitLocalizationWebsite\SitefinityWebApp.csproj">
       <Project>{3e598cfc-83b2-494a-a97f-32eb24d797c6}</Project>
       <Name>SitefinityWebApp</Name>
     </ProjectReference>

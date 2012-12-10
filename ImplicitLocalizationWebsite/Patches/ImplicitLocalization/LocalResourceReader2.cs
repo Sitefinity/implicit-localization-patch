@@ -25,9 +25,6 @@ namespace SitefinityWebApp.Patches.ImplicitLocalization
             if (resourceFilePaths == null)
                 throw new ArgumentNullException("resourceFilePaths");
 
-            if (resourceFilePaths.Length == 0)
-                throw new ArgumentException("At least one resource file path must be passed.");
-
             if (keyFormatter == null)
                 throw new ArgumentNullException("keyFormatter");
 
